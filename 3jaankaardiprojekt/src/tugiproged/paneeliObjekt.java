@@ -25,7 +25,7 @@ ArrayList<Integer> list = new ArrayList<Integer>(7);
 	
 	public static ArrayList<ImageIcon> 	pildilist=new ArrayList<ImageIcon>();
 	public static ArrayList<JButton>	nupulist=new ArrayList<JButton>();
-	JPanel ObjektiPaneel=new JPanel();
+	public static JPanel ObjektiPaneel=new JPanel();
 	ImageIcon image=new ImageIcon();
 	JLabel label=new JLabel();
 	JButton nupp=new JButton();

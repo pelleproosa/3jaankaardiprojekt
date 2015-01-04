@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import tugiproged.*;
 public class Global {
 	
-//Paneelide list	
+//Paneelide listid	
+	//paneelide vahemikud: 
+		//kogumpaneel_1[0-8]
 public static ArrayList<paneeliObjekt> paneeliObjektList=new ArrayList<paneeliObjekt>();
 
 //Peapaneelid
