@@ -19,8 +19,7 @@ public class Main {
 		// http://tips4java.wordpress.com/2009/04/06/rotated-icon/
 		System.out.println("Siin kõik algab!");
 		
-	paneeliObjekt paneelObjekt= new	paneeliObjekt("tabel",1,0,"","",0);
-	Global.paneeliObjektList.add(paneelObjekt);
+	
 		
 	}
 
