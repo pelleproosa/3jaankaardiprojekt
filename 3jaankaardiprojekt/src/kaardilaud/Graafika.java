@@ -43,9 +43,12 @@ public class Graafika {
 		//Global.paneeliObjektList.get(1).ObjektiPaneel.add(Global.paneeliObjektList.get(0).ObjektiPaneel);
 		
        // frame.getContentPane().add(Global.paneeliObjektList.get(1).ObjektiPaneel);
+		JPanel vahepaneel=new JPanel ();
+		vahepaneel=Global.paneeliObjektList.get(0).ObjektiPaneel;
+		Global.paneeliObjektList.get(1).ObjektiPaneel.add(vahepaneel);
 	    frame.setSize(2, 2);
 	    frame.setLocation(300,300);
-		frame.getContentPane().add(BorderLayout.CENTER,Global.paneeliObjektList.get(0).ObjektiPaneel);
+		frame.getContentPane().add(BorderLayout.CENTER,Global.paneeliObjektList.get(1).ObjektiPaneel);
 	//	Global.paneeliObjektList.get(0).ObjektiPaneel.add(new JLabel(new ImageIcon(Global.pildiAadressideList.get(0))));
 		
         /*

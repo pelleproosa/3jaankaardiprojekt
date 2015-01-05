@@ -25,12 +25,12 @@ If you want to create an array list with initial capacity, then you should do th
 ArrayList<Integer> list = new ArrayList<Integer>(7);
 	 */
 	
-	public static ArrayList<ImageIcon> 	pildilist=new ArrayList<ImageIcon>();
-	public static ArrayList<JButton>	nupulist=new ArrayList<JButton>();
-	public static JPanel ObjektiPaneel=new JPanel();
-	public static ImageIcon image=new ImageIcon();
-	public static JLabel label=new JLabel();
-	public static JButton nupp=new JButton();
+	public  ArrayList<ImageIcon> 	pildilist=new ArrayList<ImageIcon>();
+	public  ArrayList<JButton>	nupulist=new ArrayList<JButton>();
+	public  JPanel ObjektiPaneel=new JPanel();
+	public  ImageIcon image=new ImageIcon();
+	public  JLabel label=new JLabel();
+	public  JButton nupp=new JButton();
 	
 public paneeliObjekt(String paneeliLayout, int GridTulbad, int GridRead, String paneeliKomponendid,String paneelPildiAadressNupuNimi, int nrKomponendid){
 	
@@ -47,12 +47,12 @@ public paneeliObjekt(String paneeliLayout, int GridTulbad, int GridRead, String 
 		System.out.println("TABEL");break;}
 	case "RIDA":
 	{
-		ObjektiPaneel.setLayout(new BoxLayout(ObjektiPaneel,BoxLayout.Y_AXIS));
+		ObjektiPaneel.setLayout(new BoxLayout(ObjektiPaneel,BoxLayout.X_AXIS));
 		
 		System.out.println("RIDA");break;}
 	case "TULP":
 	{
-		ObjektiPaneel.setLayout(new BoxLayout(ObjektiPaneel,BoxLayout.X_AXIS));
+		ObjektiPaneel.setLayout(new BoxLayout(ObjektiPaneel,BoxLayout.Y_AXIS));
 		System.out.println("TULP");break;}
 	case "ILMAKAARED":
 	{
