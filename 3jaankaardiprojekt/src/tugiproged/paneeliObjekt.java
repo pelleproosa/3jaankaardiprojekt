@@ -10,6 +10,8 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import main.Global;
+
 public class paneeliObjekt {
 
 	
@@ -26,9 +28,9 @@ ArrayList<Integer> list = new ArrayList<Integer>(7);
 	public static ArrayList<ImageIcon> 	pildilist=new ArrayList<ImageIcon>();
 	public static ArrayList<JButton>	nupulist=new ArrayList<JButton>();
 	public static JPanel ObjektiPaneel=new JPanel();
-	ImageIcon image=new ImageIcon();
-	JLabel label=new JLabel();
-	JButton nupp=new JButton();
+	public static ImageIcon image=new ImageIcon();
+	public static JLabel label=new JLabel();
+	public static JButton nupp=new JButton();
 	
 public paneeliObjekt(String paneeliLayout, int GridTulbad, int GridRead, String paneeliKomponendid,String paneelPildiAadressNupuNimi, int nrKomponendid){
 	
@@ -40,15 +42,17 @@ public paneeliObjekt(String paneeliLayout, int GridTulbad, int GridRead, String 
 	{
 		GridLayout gl=new GridLayout(GridTulbad,GridRead);
 		ObjektiPaneel.setLayout(gl);
+
 		
 		System.out.println("TABEL");break;}
 	case "RIDA":
 	{
-		ObjektiPaneel.setLayout(new BoxLayout(ObjektiPaneel,BoxLayout.X_AXIS));
+		ObjektiPaneel.setLayout(new BoxLayout(ObjektiPaneel,BoxLayout.Y_AXIS));
+		
 		System.out.println("RIDA");break;}
 	case "TULP":
 	{
-		ObjektiPaneel.setLayout(new BoxLayout(ObjektiPaneel,BoxLayout.Y_AXIS));
+		ObjektiPaneel.setLayout(new BoxLayout(ObjektiPaneel,BoxLayout.X_AXIS));
 		System.out.println("TULP");break;}
 	case "ILMAKAARED":
 	{
@@ -73,7 +77,10 @@ void setKomponendid(String paneeliKomponendid, String paneelPildiAadressNupuNimi
 		image=new ImageIcon(paneelPildiAadressNupuNimi);
 		label=new JLabel(image);
 		ObjektiPaneel.add(label);
-		System.out.println("PILT");break;}
+		image=new ImageIcon(Global.pildiAadressideList.get(0));
+		label=new JLabel(image);
+		ObjektiPaneel.add(label);
+		break;}
 	case "NUPP":
 	{
 		nupp=new JButton();

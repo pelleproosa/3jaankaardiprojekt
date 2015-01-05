@@ -1,11 +1,11 @@
-package main;
+package kaardilaud;
 
 
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-class JFRAME_KATSE
+public class JFRAME_KATSE
 {
     public static void main(String[] args) {
         String[] labels = {
