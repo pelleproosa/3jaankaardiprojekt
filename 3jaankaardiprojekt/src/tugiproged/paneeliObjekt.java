@@ -1,6 +1,7 @@
 package tugiproged;
 
 import java.awt.BorderLayout;
+import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.util.ArrayList;
 
@@ -59,6 +60,13 @@ public paneeliObjekt(String paneeliLayout, int GridTulbad, int GridRead, String 
 		BorderLayout bl =new BorderLayout();
 		ObjektiPaneel.setLayout(bl);
 		System.out.println("ILMAKAARED");break;}
+	case "FLOW":
+	{
+		FlowLayout fl=new FlowLayout();
+		ObjektiPaneel.setLayout(fl);
+
+		
+		System.out.println("FLOW");break;}
 	}
 	
 setKomponendid(paneeliKomponendid,paneelPildiAadressNupuNimi, nrKomponendid);

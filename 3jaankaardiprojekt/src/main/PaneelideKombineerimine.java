@@ -20,28 +20,28 @@ public class PaneelideKombineerimine {
 	
 	
 	public static void kogumpaneel_1(){
-		paneelRida= new	paneeliObjekt("rida",0,0,"","",0); //tabel=gridlayout, rida ja tulp on boxlayout, ilmakaared=borderlayout
+		paneelRida= new	paneeliObjekt("rida",0,0,"pilt","",2); //tabel=gridlayout, rida ja tulp on boxlayout, ilmakaared=borderlayout
 		Global.paneeliObjektList.add(paneelRida);
-		paneelTulp= new	paneeliObjekt("tulp",0,0,"","",0); //tabel=gridlayout, rida ja tulp on boxlayout, ilmakaared=borderlayout
+		paneelTulp= new	paneeliObjekt("flow",0,0,"","",0); //tabel=gridlayout, rida ja tulp on boxlayout, ilmakaared=borderlayout
 		Global.paneeliObjektList.add(paneelTulp);
 		paneeliliitmine(1,0);
-		paneelRida= new	paneeliObjekt("rida",0,0,"","",0); //tabel=gridlayout, rida ja tulp on boxlayout, ilmakaared=borderlayout
+		paneelRida= new	paneeliObjekt("rida",0,0,"pilt","",2); //tabel=gridlayout, rida ja tulp on boxlayout, ilmakaared=borderlayout
 		Global.paneeliObjektList.add(paneelRida);
 		paneelTulp= new	paneeliObjekt("tulp",0,0,"","",0); //tabel=gridlayout, rida ja tulp on boxlayout, ilmakaared=borderlayout
 		Global.paneeliObjektList.add(paneelTulp);
 		paneeliliitmine(3,2);
-		paneelRida= new	paneeliObjekt("tulp",0,0,"","",0); //tabel=gridlayout, rida ja tulp on boxlayout, ilmakaared=borderlayout
+		paneelRida= new	paneeliObjekt("tulp",0,0,"pilt","",2); //tabel=gridlayout, rida ja tulp on boxlayout, ilmakaared=borderlayout
 		Global.paneeliObjektList.add(paneelRida);
 		paneelTulp= new	paneeliObjekt("rida",0,0,"","",0); //tabel=gridlayout, rida ja tulp on boxlayout, ilmakaared=borderlayout
 		Global.paneeliObjektList.add(paneelTulp);
 		paneeliliitmine(5,4);
-		paneelRida= new	paneeliObjekt("tulp",0,0,"","",0); //tabel=gridlayout, rida ja tulp on boxlayout, ilmakaared=borderlayout
+		paneelRida= new	paneeliObjekt("tulp",0,0,"pilt","",2); //tabel=gridlayout, rida ja tulp on boxlayout, ilmakaared=borderlayout
 		Global.paneeliObjektList.add(paneelRida);
 		paneelTulp= new	paneeliObjekt("rida",0,0,"","",0); //tabel=gridlayout, rida ja tulp on boxlayout, ilmakaared=borderlayout
 		Global.paneeliObjektList.add(paneelTulp);
 		paneeliliitmine(7,6);
 		
-		paneeliObjekt paneelObjekt= new	paneeliObjekt("ilmakaared",1,0,"","",0); //tabel=gridlayout, rida ja tulp on boxlayout, ilmakaared=borderlayout
+		paneeliObjekt paneelObjekt= new	paneeliObjekt("ilmakaared",1,0,"pilt","",0); //tabel=gridlayout, rida ja tulp on boxlayout, ilmakaared=borderlayout
 		Global.paneeliObjektList.add(paneelObjekt);
 		Global.paneeliObjektList.get(8).ObjektiPaneel.add(Global.paneeliObjektList.get(0).ObjektiPaneel,BorderLayout.NORTH);
 		Global.paneeliObjektList.get(8).ObjektiPaneel.add(Global.paneeliObjektList.get(2).ObjektiPaneel,BorderLayout.SOUTH);

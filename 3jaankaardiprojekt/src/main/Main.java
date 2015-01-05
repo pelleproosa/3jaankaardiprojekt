@@ -23,7 +23,7 @@ public class Main {
 		System.out.println("Siin kõik algab!");
 		String pilt1="D:/temp/2/joker/jokerextra.png";
 		Global.pildiAadressideList.add(pilt1);
-	//	PaneelideKombineerimine.kogumpaneel_1();
+		PaneelideKombineerimine.kogumpaneel_1();
 	
 	
 		kaardilaud.Main.main(null);
