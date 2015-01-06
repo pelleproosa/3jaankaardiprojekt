@@ -4,11 +4,9 @@ package kaardilaud;
 
 
 import java.awt.*;
-import java.awt.event.*;
 
 import javax.swing.*;
 
-import tugiproged.paneeliObjekt;
 import main.Global;
 
 public class Graafika {
@@ -25,7 +23,7 @@ public class Graafika {
         };
         
         */
-          JFrame frame = new JFrame();
+        JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
        
       /*   final JPanel panel = new JPanel();
@@ -50,6 +48,7 @@ public class Graafika {
 	    frame.setSize(2, 2);
 	    frame.setLocation(300,300);
 	    */
+        System.out.println("Viimane liige Graafikas: "+Global.paneeliObjektList.size());
 		frame.getContentPane().add(BorderLayout.CENTER,Global.paneeliObjektList.get(8).ObjektiPaneel);
 	//	Global.paneeliObjektList.get(0).ObjektiPaneel.add(new JLabel(new ImageIcon(Global.pildiAadressideList.get(0))));
 		

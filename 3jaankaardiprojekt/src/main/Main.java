@@ -21,8 +21,8 @@ public class Main {
 
 		// http://tips4java.wordpress.com/2009/04/06/rotated-icon/
 		System.out.println("Siin kõik algab!");
-		String pilt1="D:/temp/2/joker/jokerextra.png";
-		Global.pildiAadressideList.add(pilt1);
+		
+		Global.pildiAadressideList.add(Global.Desktop);
 		PaneelideKombineerimine.kogumpaneel_1();
 	
 	

@@ -1,10 +1,14 @@
 package tugiproged;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.util.ArrayList;
 
+import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -32,10 +36,14 @@ ArrayList<Integer> list = new ArrayList<Integer>(7);
 	public  ImageIcon image=new ImageIcon();
 	public  JLabel label=new JLabel();
 	public  JButton nupp=new JButton();
+	public 	GridBagConstraints gbc = new GridBagConstraints();
+	public Box vertikaalkast =Box.createVerticalBox();
+    public Box horisontaalkast = Box.createHorizontalBox();
+	private String paneelilayout;
 	
 public paneeliObjekt(String paneeliLayout, int GridTulbad, int GridRead, String paneeliKomponendid,String paneelPildiAadressNupuNimi, int nrKomponendid){
 	
-	
+	paneelilayout=paneeliLayout;
 	paneeliLayout=paneeliLayout.toUpperCase();
 
 	switch (paneeliLayout){
@@ -54,6 +62,7 @@ public paneeliObjekt(String paneeliLayout, int GridTulbad, int GridRead, String 
 	case "TULP":
 	{
 		ObjektiPaneel.setLayout(new BoxLayout(ObjektiPaneel,BoxLayout.Y_AXIS));
+		
 		System.out.println("TULP");break;}
 	case "ILMAKAARED":
 	{
@@ -67,7 +76,31 @@ public paneeliObjekt(String paneeliLayout, int GridTulbad, int GridRead, String 
 
 		
 		System.out.println("FLOW");break;}
+case "GRIDBAG":
+{
+	
+	
+	
+	ObjektiPaneel.setLayout(new GridBagLayout());
+	
+	
+
+	
+	System.out.println("GRIDBAG");break;}
+case "BOX":
+{
+	
+	
+	ObjektiPaneel.setLayout(new BoxLayout(ObjektiPaneel, BoxLayout.Y_AXIS));
+	
+	
+
+	
+
+	
+	System.out.println("BoxLayout");break;}
 	}
+
 	
 setKomponendid(paneeliKomponendid,paneelPildiAadressNupuNimi, nrKomponendid);
 
@@ -82,13 +115,48 @@ void setKomponendid(String paneeliKomponendid, String paneelPildiAadressNupuNimi
 	switch (paneeliKomponendid){
 	case "PILT":
 	{
+		if (paneelilayout.equalsIgnoreCase("box")){
+			
+			
+			System.out.println("Box");
+	
+		    vertikaalkast.add(Box.createRigidArea(new Dimension(50, 1)));
+		    
+
+			
+			image=new ImageIcon(paneelPildiAadressNupuNimi);
+			
+			label=new JLabel(image);
+
+			ObjektiPaneel.add(label);
+			image=new ImageIcon(Global.pildiAadressideList.get(0));
+			label=new JLabel(image);
+			vertikaalkast.add(label);
+			vertikaalkast.add(Box.createHorizontalGlue());
+		    horisontaalkast.add(Box.createHorizontalGlue());
+		    horisontaalkast.add(vertikaalkast);
+		    horisontaalkast.add(Box.createHorizontalGlue());
+			
+			ObjektiPaneel.add(horisontaalkast);
+			
+			
+			break;
+
+		}else{
+			
+		
+		
 		image=new ImageIcon(paneelPildiAadressNupuNimi);
+		
 		label=new JLabel(image);
+		label.setHorizontalAlignment(JLabel.CENTER);
+		label.setVerticalAlignment(JLabel.CENTER);
 		ObjektiPaneel.add(label);
 		image=new ImageIcon(Global.pildiAadressideList.get(0));
 		label=new JLabel(image);
 		ObjektiPaneel.add(label);
 		break;}
+	}
 	case "NUPP":
 	{
 		nupp=new JButton();
