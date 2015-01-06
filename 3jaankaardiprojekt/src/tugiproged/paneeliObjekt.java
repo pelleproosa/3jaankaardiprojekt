@@ -6,6 +6,7 @@ import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.awt.Rectangle;
 import java.util.ArrayList;
 
 import javax.swing.Box;
@@ -120,6 +121,7 @@ void setKomponendid(String paneeliKomponendid, String paneelPildiAadressNupuNimi
 			
 			System.out.println("Box");
 	
+
 		    vertikaalkast.add(Box.createRigidArea(new Dimension(50, 1)));
 		    
 

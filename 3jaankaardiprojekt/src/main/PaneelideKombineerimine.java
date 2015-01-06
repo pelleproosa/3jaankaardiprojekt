@@ -6,8 +6,10 @@ package main;
 import java.awt.BorderLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.Rectangle;
 
 import javax.swing.Box;
+
 
 
 import tugiproged.paneeliObjekt;
@@ -59,7 +61,7 @@ public class PaneelideKombineerimine {
 		
 		 */
 		
-		
+
 		
 		
 		paneelRida= new	paneeliObjekt("box",0,0,"pilt","",2); //tabel=gridlayout, rida ja tulp on boxlayout, ilmakaared=borderlayout
