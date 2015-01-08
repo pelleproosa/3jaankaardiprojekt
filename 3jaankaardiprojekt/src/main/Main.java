@@ -2,11 +2,6 @@
  * Pelle fail
  */
 package main;
-
-import javax.swing.JFrame;
-
-import tugiproged.*;
-import kaardilaud.*;
 /**
  *
  */

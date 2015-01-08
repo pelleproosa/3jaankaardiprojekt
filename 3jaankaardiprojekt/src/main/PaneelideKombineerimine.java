@@ -11,7 +11,7 @@ import tugiproged.paneeliObjekt;
  */
 public class PaneelideKombineerimine {
 
-	public static paneeliObjekt paneelRida=new paneeliObjekt("rida",0,0,"","",0);
+	public static paneeliObjekt paneelRida=new paneeliObjekt("rida","","","",0);
 
 	
 	public void algseadistus(){
@@ -20,20 +20,21 @@ public class PaneelideKombineerimine {
 	
 	public static void kogumpaneel_1(){
 	
-		paneelRida= new	paneeliObjekt("gridbag",0,0,"pilt","rida",2); //tabel=gridlayout, rida ja tulp on boxlayout, ilmakaared=borderlayout
+		paneelRida= new	paneeliObjekt("gridbag","rida","pilt","",2); //tabel=gridlayout, rida ja tulp on boxlayout, ilmakaared=borderlayout
 		Global.paneeliObjektList.add(paneelRida);		
 
-		paneelRida= new	paneeliObjekt("gridbag",0,0,"pilt","rida",2); //tabel=gridlayout, rida ja tulp on boxlayout, ilmakaared=borderlayout
+		paneelRida= new	paneeliObjekt("gridbag","rida","pilt","",2); //tabel=gridlayout, rida ja tulp on boxlayout, ilmakaared=borderlayout
 		Global.paneeliObjektList.add(paneelRida);
 		
-		paneelRida= new	paneeliObjekt("gridbag",0,1,"pilt","",3); //tabel=gridlayout, rida ja tulp on boxlayout, ilmakaared=borderlayout
+		paneelRida= new	paneeliObjekt("gridbag","tulp","pilt","",3); //tabel=gridlayout, rida ja tulp on boxlayout, ilmakaared=borderlayout
+		Global.paneeliObjektList.add(paneelRida);
+		System.out.println("West paneelil on komponente: "+Global.paneeliObjektList.get(2).ObjektiPaneel.getComponentCount());
+		
+		paneelRida= new	paneeliObjekt("gridbag","tulp","pilt","",3); //tabel=gridlayout, rida ja tulp on boxlayout, ilmakaared=borderlayout
 		Global.paneeliObjektList.add(paneelRida);
 		
-		paneelRida= new	paneeliObjekt("gridbag",0,1,"pilt","",3); //tabel=gridlayout, rida ja tulp on boxlayout, ilmakaared=borderlayout
-		Global.paneeliObjektList.add(paneelRida);
 		
-		
-		paneeliObjekt paneelObjekt= new	paneeliObjekt("ilmakaared",1,0,"pilt","",0); //tabel=gridlayout, rida ja tulp on boxlayout, ilmakaared=borderlayout
+		paneeliObjekt paneelObjekt= new	paneeliObjekt("ilmakaared","","pilt","",0); //tabel=gridlayout, rida ja tulp on boxlayout, ilmakaared=borderlayout
 		Global.paneeliObjektList.add(paneelObjekt);
 		Global.paneeliObjektList.get(4).ObjektiPaneel.setBounds(0, 0, 0, 0);
 		System.out.println("Viimane liige on nr: "+(Global.paneeliObjektList.size()-1));
