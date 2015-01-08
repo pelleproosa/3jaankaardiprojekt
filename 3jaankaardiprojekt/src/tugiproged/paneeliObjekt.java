@@ -2,14 +2,11 @@ package tugiproged;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.awt.GridLayout;
 import java.util.ArrayList;
 
 import javax.swing.Box;
-import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -60,10 +57,7 @@ public paneeliObjekt(String paneeliLayout, String layoutSuund, String paneeliKom
 	{
 	ObjektiPaneel.setLayout(new GridBagLayout());
 break;
-		
 	}
-
-	
 	}
 
 	
@@ -85,7 +79,7 @@ void setKomponendid(String layoutSuund,String paneeliKomponendid, String paneelP
 			image=new ImageIcon();
 			label=new JLabel(image);
 			ObjektiPaneel.add(label);
-			image=new ImageIcon(Global.pildiAadressideList.get(0));
+			image=new ImageIcon(paneelPildiAadressNupuNimi);
 			label=new JLabel(image);
 			vertikaalkast.add(label);
 			vertikaalkast.add(Box.createHorizontalGlue());
@@ -98,7 +92,7 @@ void setKomponendid(String layoutSuund,String paneeliKomponendid, String paneelP
 		if(paneelilayout.equalsIgnoreCase("gridbag")){
 			System.out.println("gridbag lugeja = "+i);
 			if(layoutSuund.equalsIgnoreCase("rida")){
-				image=new ImageIcon(Global.pildiAadressideList.get(0));
+				image=new ImageIcon(paneelPildiAadressNupuNimi);
 				label=new JLabel(image);
 				if(gBC.gridy<0){gBC.gridy=0;}
 				gBC.gridx=gBCgridx;
@@ -108,7 +102,7 @@ void setKomponendid(String layoutSuund,String paneeliKomponendid, String paneelP
 				break;	
 			}
 			if(layoutSuund.equalsIgnoreCase("tulp")){
-			image=new ImageIcon(Global.pildiAadressideList.get(0));
+			image=new ImageIcon(paneelPildiAadressNupuNimi);
 			label=new JLabel(image);
 			if(gBC.gridx<0){gBC.gridx=0;}
 			gBC.gridy=gBCgridy;
@@ -126,7 +120,7 @@ void setKomponendid(String layoutSuund,String paneeliKomponendid, String paneelP
 				label.setHorizontalAlignment(JLabel.CENTER);
 				label.setVerticalAlignment(JLabel.CENTER);
 				ObjektiPaneel.add(label);
-				image=new ImageIcon(Global.pildiAadressideList.get(0));
+				image=new ImageIcon(paneelPildiAadressNupuNimi);
 				label=new JLabel(image);
 				ObjektiPaneel.add(label);
 				System.out.println("PILT ELSE");
@@ -149,6 +143,14 @@ void setKomponendid(String layoutSuund,String paneeliKomponendid, String paneelP
 
 
 
+vaja teha lisafunktsioon siia sisse, et saaks kasutada  midagi sellist:
+	Global.paneeliObjektList.get(0).kustutaPiltKohal(int koht);
+
+selle abiks on infoks:
+	komponentide arvu paneelil saad kontrollida:
+		int komponentideArv = minuPaneel.getComponentCount();
+ja komponente saab kustutada sedasi:
+paneel.remove(4);
 
 
 	
