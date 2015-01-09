@@ -89,8 +89,8 @@ public void setLisaPiltRitta(String paneelPildiAadressNupuNimi, int kohtTulbas){
 }
 public void setKustutaKomponentPaneelist(int komponendiNr){
 	ObjektiPaneel.remove(komponendiNr);
-	gBCgridx--;
-	gBCgridy--;
+	if(gBCgridx>0){gBCgridx--;}
+	if(gBCgridy>0){gBCgridy--;}
 }
 public int getKomponentideArv(){
 	return ObjektiPaneel.getComponentCount();
