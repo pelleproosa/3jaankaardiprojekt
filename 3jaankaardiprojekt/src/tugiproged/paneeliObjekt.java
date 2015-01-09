@@ -1,6 +1,7 @@
 package tugiproged;
 
 import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -25,95 +26,131 @@ public class paneeliObjekt {
 	public  JLabel label=new JLabel();
 	public  JButton nupp=new JButton();
 	public 	GridBagConstraints gbc = new GridBagConstraints();
-	public Box vertikaalkast =Box.createVerticalBox();
-    public Box horisontaalkast = Box.createHorizontalBox();
-	public String paneelilayout;
+//	public Box vertikaalkast =Box.createVerticalBox();
+//    public Box horisontaalkast = Box.createHorizontalBox();
+	public String korraldus;
 	public GridBagConstraints gBC = new GridBagConstraints();
 	public int gBCgridx=0;
 	public int gBCgridy=0;
+	public boolean edasi=false;
 	
-public paneeliObjekt(String paneeliLayout, String layoutSuund, String paneeliKomponendid,String paneelPildiAadressNupuNimi, int nrKomponendid){
-	
-	paneelilayout=paneeliLayout;
-	paneeliLayout=paneeliLayout.toUpperCase();
+public paneeliObjekt(String Korraldus, String layoutSuund, String paneeliKomponendid,String paneelPildiAadressNupuNimi, int nrKomponendid){
+	layoutSuund=layoutSuund.toUpperCase();
+	Korraldus=Korraldus.toUpperCase();
+	korraldus=Korraldus;
+	switch (korraldus){
+		case "ILMAKAARED":
+		{
+			BorderLayout bl =new BorderLayout(0,0);
+			ObjektiPaneel.setLayout(bl);
+			edasi=true;
+			break;
+		}
+		case "GRIDBAG":
+		{
+			ObjektiPaneel.setLayout(new GridBagLayout());
+			edasi=true;
+			break;
+		}
 
-	switch (paneeliLayout){
-
-	
-	
-	
-	
-	
-	
-	case "ILMAKAARED":
-	{
-		BorderLayout bl =new BorderLayout(0,0);
-		ObjektiPaneel.setLayout(bl);break;
+		case "LISA":
+		{
+			edasi=true;
+		}
 		
 	}
-
+if(edasi){	
+setKomponendid(korraldus,layoutSuund, paneeliKomponendid,paneelPildiAadressNupuNimi, nrKomponendid);
+}else{
 	
-	case "GRIDBAG":
-	{
-	ObjektiPaneel.setLayout(new GridBagLayout());
-break;
-	}
-	}
-
-	
-setKomponendid(layoutSuund, paneeliKomponendid,paneelPildiAadressNupuNimi, nrKomponendid);
+}
 
 }	
 
-void setKomponendid(String layoutSuund,String paneeliKomponendid, String paneelPildiAadressNupuNimi, int nrKomponendid){
-	paneeliKomponendid=paneeliKomponendid.toUpperCase();
+public void setLisaPiltTulpa(String paneelPildiAadressNupuNimi, int kohtTulbas){
 	
+	image=new ImageIcon(paneelPildiAadressNupuNimi);
+	label=new JLabel(image);
+	if(gBC.gridx<0){gBC.gridx=0;gBCgridx=gBC.gridx;}
+	gBC.gridy=kohtTulbas;
+	ObjektiPaneel.add(label,gBC);
+	gBCgridy++;
+	
+}
+public void setLisaPiltRitta(String paneelPildiAadressNupuNimi, int kohtTulbas){
+	
+	image=new ImageIcon(paneelPildiAadressNupuNimi);
+	label=new JLabel(image);
+	if(gBC.gridy<0){gBC.gridy=0;gBCgridy=gBC.gridy;}
+	gBC.gridx=kohtTulbas;
+	ObjektiPaneel.add(label,gBC);
+	gBCgridx++;
+	
+}
+public void setKustutaKomponentPaneelist(int komponendiNr){
+	ObjektiPaneel.remove(komponendiNr);
+	gBCgridx--;
+	gBCgridy--;
+}
+public int getKomponentideArv(){
+	return ObjektiPaneel.getComponentCount();
+}
+public ArrayList<String> getKomponentideLoetelu(){
+	ArrayList<String> loetelu=new ArrayList<String>();
+	Component[] komponendid= ObjektiPaneel.getComponents();
+	for(int i=0; i<komponendid.length;i++){
+	loetelu.add(komponendid[i].getClass().getName().toString());
+	}
+	 
+	 return loetelu;
+}
+
+
+public void setKomponendid(String korraldus,String layoutSuund,String paneeliKomponendid, String paneelPildiAadressNupuNimi, int nrKomponendid){
+	paneeliKomponendid=paneeliKomponendid.toUpperCase();
+	korraldus=korraldus.toUpperCase();
+	layoutSuund=layoutSuund.toUpperCase();
+	System.out.println(korraldus+" "+layoutSuund+" "+paneeliKomponendid+" "+paneelPildiAadressNupuNimi+" "+nrKomponendid);
+	if (korraldus.equalsIgnoreCase("lisa")){edasi=true;}
+	if (edasi){
 	for(int i=0; i<nrKomponendid; i++)
-	{System.out.println(" lugeja = "+i);
-	   //Statements
+	{
 	switch (paneeliKomponendid){
 	case "PILT":
-	{
-		if (paneelilayout.equalsIgnoreCase("box")){
-		    vertikaalkast.add(Box.createRigidArea(new Dimension(50, 1)));
-			image=new ImageIcon();
-			label=new JLabel(image);
-			ObjektiPaneel.add(label);
-			image=new ImageIcon(paneelPildiAadressNupuNimi);
-			label=new JLabel(image);
-			vertikaalkast.add(label);
-			vertikaalkast.add(Box.createHorizontalGlue());
-		    horisontaalkast.add(Box.createHorizontalGlue());
-		    horisontaalkast.add(vertikaalkast);
-		    horisontaalkast.add(Box.createHorizontalGlue());
-			ObjektiPaneel.add(horisontaalkast);
-			break;
-		}
-		if(paneelilayout.equalsIgnoreCase("gridbag")){
-			System.out.println("gridbag lugeja = "+i);
-			if(layoutSuund.equalsIgnoreCase("rida")){
-				image=new ImageIcon(paneelPildiAadressNupuNimi);
-				label=new JLabel(image);
-				if(gBC.gridy<0){gBC.gridy=0;}
-				gBC.gridx=gBCgridx;
-				System.out.println("gridx= "+gBC.gridx+". gridy= "+gBC.gridy);
-				ObjektiPaneel.add(label,gBC);
-				gBCgridx++;
-				break;	
-			}
-			if(layoutSuund.equalsIgnoreCase("tulp")){
-			image=new ImageIcon(paneelPildiAadressNupuNimi);
-			label=new JLabel(image);
-			if(gBC.gridx<0){gBC.gridx=0;}
-			gBC.gridy=gBCgridy;
-			System.out.println("gridx= "+gBC.gridx+". gridy= "+gBC.gridy);
-			ObjektiPaneel.add(label,gBC);
-			gBCgridy++;
-			break;
-			}
-			
-		}
-		if((!paneelilayout.equalsIgnoreCase("gridbag"))&&(!paneelilayout.equalsIgnoreCase("box"))){
+	{		switch (korraldus)
+		{
+				
+				case "GRIDBAG":
+					{
+						
+						switch (layoutSuund)
+						{
+							case "RIDA":
+							{
+								
+								image=new ImageIcon(paneelPildiAadressNupuNimi);
+								label=new JLabel(image);
+								if(gBC.gridy<0){gBC.gridy=0;}
+								gBC.gridx=gBCgridx;
+								ObjektiPaneel.add(label,gBC);
+								gBCgridx++;
+								break;	
+							}
+							case "TULP":
+							{
+								System.out.println("layoutSuund-tulp sees");
+								image=new ImageIcon(paneelPildiAadressNupuNimi);
+								label=new JLabel(image);
+								if(gBC.gridx<0){gBC.gridx=0;}
+								gBC.gridy=gBCgridy;
+								ObjektiPaneel.add(label,gBC);
+								gBCgridy++;
+								break;
+							}
+					
+						}
+					}
+		if((!korraldus.equalsIgnoreCase("gridbag"))&&(!korraldus.equalsIgnoreCase("box"))){
 			{
 				image=new ImageIcon();
 				label=new JLabel(image);
@@ -123,36 +160,25 @@ void setKomponendid(String layoutSuund,String paneeliKomponendid, String paneelP
 				image=new ImageIcon(paneelPildiAadressNupuNimi);
 				label=new JLabel(image);
 				ObjektiPaneel.add(label);
-				System.out.println("PILT ELSE");
 				break;
 				}
 		}
 		break;
-	}
+			}
+	break;
+	}//PILT END
 	case "NUPP":
 	{
 		nupp=new JButton();
 		nupp.setText(paneelPildiAadressNupuNimi);
 		ObjektiPaneel.add(nupp);
-		System.out.println("NUPP");break;}
+		System.out.println("NUPP!");
+	}
 	
 	}
 	}	
+}else{System.out.println("edasi == false!");}
+
+
 }
-
-
-
-
-vaja teha lisafunktsioon siia sisse, et saaks kasutada  midagi sellist:
-	Global.paneeliObjektList.get(0).kustutaPiltKohal(int koht);
-
-selle abiks on infoks:
-	komponentide arvu paneelil saad kontrollida:
-		int komponentideArv = minuPaneel.getComponentCount();
-ja komponente saab kustutada sedasi:
-paneel.remove(4);
-
-
-	
-	
 }

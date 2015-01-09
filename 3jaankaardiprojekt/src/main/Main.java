@@ -13,7 +13,6 @@ public class Main {
 	 */
 	public static void main(String[] args) {
 
-		System.out.println("Siin kõik algab!");
 		
 		Global.pildiAadressideList.add(Global.Desktop);
 		Global.pildiAadressideList.add(Global.Desktop1);
