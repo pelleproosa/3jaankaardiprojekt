@@ -34,7 +34,7 @@ public class paneeliObjekt {
 	public int gBCgridy=0;
 	public boolean edasi=false;
 	
-public paneeliObjekt(String Korraldus, String layoutSuund, String paneeliKomponendid,String paneelPildiAadressNupuNimi, int nrKomponendid){
+public paneeliObjekt(String Korraldus, String layoutSuund, String paneeliKomponendid,String paneelPildiAadressNupuNimi, int nrKomponendid, String nurk){
 	layoutSuund=layoutSuund.toUpperCase();
 	Korraldus=Korraldus.toUpperCase();
 	korraldus=Korraldus;
@@ -60,29 +60,29 @@ public paneeliObjekt(String Korraldus, String layoutSuund, String paneeliKompone
 		
 	}
 if(edasi){	
-setKomponendid(korraldus,layoutSuund, paneeliKomponendid,paneelPildiAadressNupuNimi, nrKomponendid);
+setKomponendid(korraldus,layoutSuund, paneeliKomponendid,paneelPildiAadressNupuNimi, nrKomponendid, nurk);
 }else{
 	
 }
 
 }	
 
-public void setLisaPiltTulpa(String paneelPildiAadressNupuNimi, int kohtTulbas){
+public void setLisaPiltTulpa(String paneelPildiAadressNupuNimi, int kohtTulbas,String nurk){
 	
 	image=new ImageIcon(paneelPildiAadressNupuNimi);
-	label=new JLabel(image);
+	label=rotatePilt(image,nurk);
 	if(gBC.gridx<0){gBC.gridx=0;gBCgridx=gBC.gridx;}
 	gBC.gridy=kohtTulbas;
 	ObjektiPaneel.add(label,gBC);
 	gBCgridy++;
 	
 }
-public void setLisaPiltRitta(String paneelPildiAadressNupuNimi, int kohtTulbas){
+public void setLisaPiltRitta(String paneelPildiAadressNupuNimi, int kohtReas,String nurk){
 	
 	image=new ImageIcon(paneelPildiAadressNupuNimi);
-	label=new JLabel(image);
+	label=rotatePilt(image,nurk);
 	if(gBC.gridy<0){gBC.gridy=0;gBCgridy=gBC.gridy;}
-	gBC.gridx=kohtTulbas;
+	gBC.gridx=kohtReas;
 	ObjektiPaneel.add(label,gBC);
 	gBCgridx++;
 	
@@ -106,7 +106,7 @@ public ArrayList<String> getKomponentideLoetelu(){
 }
 
 
-public void setKomponendid(String korraldus,String layoutSuund,String paneeliKomponendid, String paneelPildiAadressNupuNimi, int nrKomponendid){
+public void setKomponendid(String korraldus,String layoutSuund,String paneeliKomponendid, String paneelPildiAadressNupuNimi, int nrKomponendid,String nurk){
 	paneeliKomponendid=paneeliKomponendid.toUpperCase();
 	korraldus=korraldus.toUpperCase();
 	layoutSuund=layoutSuund.toUpperCase();
@@ -129,7 +129,13 @@ public void setKomponendid(String korraldus,String layoutSuund,String paneeliKom
 							{
 								
 								image=new ImageIcon(paneelPildiAadressNupuNimi);
-								label=new JLabel(image);
+								
+								
+
+								label=rotatePilt(image,nurk);
+								
+								
+								
 								if(gBC.gridy<0){gBC.gridy=0;}
 								gBC.gridx=gBCgridx;
 								ObjektiPaneel.add(label,gBC);
@@ -140,7 +146,7 @@ public void setKomponendid(String korraldus,String layoutSuund,String paneeliKom
 							{
 								System.out.println("layoutSuund-tulp sees");
 								image=new ImageIcon(paneelPildiAadressNupuNimi);
-								label=new JLabel(image);
+								label=rotatePilt(image,nurk);
 								if(gBC.gridx<0){gBC.gridx=0;}
 								gBC.gridy=gBCgridy;
 								ObjektiPaneel.add(label,gBC);
@@ -153,12 +159,12 @@ public void setKomponendid(String korraldus,String layoutSuund,String paneeliKom
 		if((!korraldus.equalsIgnoreCase("gridbag"))&&(!korraldus.equalsIgnoreCase("box"))){
 			{
 				image=new ImageIcon();
-				label=new JLabel(image);
+				label=rotatePilt(image,nurk);
 				label.setHorizontalAlignment(JLabel.CENTER);
 				label.setVerticalAlignment(JLabel.CENTER);
 				ObjektiPaneel.add(label);
 				image=new ImageIcon(paneelPildiAadressNupuNimi);
-				label=new JLabel(image);
+				label=rotatePilt(image,nurk);
 				ObjektiPaneel.add(label);
 				break;
 				}
@@ -180,5 +186,38 @@ public void setKomponendid(String korraldus,String layoutSuund,String paneeliKom
 }else{System.out.println("edasi == false!");}
 
 
+}
+public JLabel rotatePilt(ImageIcon image1, String nurk){
+	JLabel pilt=new JLabel();
+	switch(nurk)
+	{
+	case "180":{
+	CompoundIcon ci = new CompoundIcon(image1);
+	RotatedIcon ri = new RotatedIcon(ci, RotatedIcon.Rotate.UPSIDE_DOWN);
+	pilt=new JLabel(ri);
+	return pilt;
+	}
+	case "90":{
+		System.out.println("90");
+		CompoundIcon ci = new CompoundIcon(image1);
+		RotatedIcon ri = new RotatedIcon(ci, RotatedIcon.Rotate.DOWN);
+		pilt=new JLabel(ri);
+		return pilt;
+		
+		}
+	case "270":{
+		CompoundIcon ci = new CompoundIcon(image1);
+		RotatedIcon ri = new RotatedIcon(ci, RotatedIcon.Rotate.UP);
+		pilt=new JLabel(ri);
+		return pilt;
+		}
+	case "0":{
+		
+		pilt=new JLabel(image1);
+		return pilt;
+		}
+	}
+
+	return pilt;
 }
 }
