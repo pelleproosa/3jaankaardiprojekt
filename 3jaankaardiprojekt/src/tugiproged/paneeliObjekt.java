@@ -5,6 +5,9 @@ import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.event.InputEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 import javax.swing.Box;
@@ -71,6 +74,7 @@ public void setLisaPiltTulpa(String paneelPildiAadressNupuNimi, int kohtTulbas,S
 	
 	image=new ImageIcon(paneelPildiAadressNupuNimi);
 	label=rotatePilt(image,nurk);
+	hiireaction();
 	if(gBC.gridx<0){gBC.gridx=0;gBCgridx=gBC.gridx;}
 	gBC.gridy=kohtTulbas;
 	ObjektiPaneel.add(label,gBC);
@@ -81,6 +85,7 @@ public void setLisaPiltRitta(String paneelPildiAadressNupuNimi, int kohtReas,Str
 	
 	image=new ImageIcon(paneelPildiAadressNupuNimi);
 	label=rotatePilt(image,nurk);
+	hiireaction();
 	if(gBC.gridy<0){gBC.gridy=0;gBCgridy=gBC.gridy;}
 	gBC.gridx=kohtReas;
 	ObjektiPaneel.add(label,gBC);
@@ -133,7 +138,7 @@ public void setKomponendid(String korraldus,String layoutSuund,String paneeliKom
 								
 
 								label=rotatePilt(image,nurk);
-								
+								hiireaction();
 								
 								
 								if(gBC.gridy<0){gBC.gridy=0;}
@@ -147,6 +152,8 @@ public void setKomponendid(String korraldus,String layoutSuund,String paneeliKom
 								System.out.println("layoutSuund-tulp sees");
 								image=new ImageIcon(paneelPildiAadressNupuNimi);
 								label=rotatePilt(image,nurk);
+								hiireaction();
+								
 								if(gBC.gridx<0){gBC.gridx=0;}
 								gBC.gridy=gBCgridy;
 								ObjektiPaneel.add(label,gBC);
@@ -160,11 +167,13 @@ public void setKomponendid(String korraldus,String layoutSuund,String paneeliKom
 			{
 				image=new ImageIcon();
 				label=rotatePilt(image,nurk);
+				hiireaction();
 				label.setHorizontalAlignment(JLabel.CENTER);
 				label.setVerticalAlignment(JLabel.CENTER);
 				ObjektiPaneel.add(label);
 				image=new ImageIcon(paneelPildiAadressNupuNimi);
 				label=rotatePilt(image,nurk);
+				hiireaction();
 				ObjektiPaneel.add(label);
 				break;
 				}
@@ -189,6 +198,9 @@ public void setKomponendid(String korraldus,String layoutSuund,String paneeliKom
 }
 public JLabel rotatePilt(ImageIcon image1, String nurk){
 	JLabel pilt=new JLabel();
+	
+	
+	
 	switch(nurk)
 	{
 	case "180":{
@@ -220,4 +232,34 @@ public JLabel rotatePilt(ImageIcon image1, String nurk){
 
 	return pilt;
 }
+
+private void hiireaction(){
+	label.addMouseListener(new MouseAdapter(){
+		public void mouseClicked(MouseEvent evt) {
+			if ((evt.getModifiers() & InputEvent.BUTTON1_MASK) != 0) {
+				System.out.println("Left clicked");
+			}
+			if ((evt.getModifiers() & InputEvent.BUTTON2_MASK) != 0) {
+				System.out.println("Center clicked");
+			}
+			if ((evt.getModifiers() & InputEvent.BUTTON3_MASK) != 0) {
+				
+				 
+				
+				System.out.println("Right clicked");
+				
+				 
+			}
+				    }
+
+		public void mouseEntered(MouseEvent e){
+			System.out.println("Hiir Saabus");
+		}
+		public void mouseExited(MouseEvent e){
+			System.out.println("Hiir Lahkus");
+		}
+	});
+	
+}
+
 }
