@@ -24,7 +24,7 @@ System.out.println((i+1)+" "+Global.pildiAadressideList.get(i));
 
 */
 
-		PaneelideKombineerimine.algseadistus("bridge");
+		PaneelideKombineerimine.algseadistus("bridge",1,1,Global.piltideList.get(1));
 	
 		kaardilaud.Main.main(null);
 	
