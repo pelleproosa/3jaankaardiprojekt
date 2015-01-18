@@ -1,6 +1,7 @@
 package main;
 import java.util.ArrayList;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -19,8 +20,9 @@ public static JPanel katseraam1=new JPanel();
 
 //Pildiaadresside list
 public static ArrayList<String> pildiAadressideList=new ArrayList<String>();
-
-
+public static int ViimaneSuurKaartListis=0;
+public static int ViimanePisikeKaartListis=0;
+public static ArrayList<ImageIcon> piltideList=new ArrayList<ImageIcon>();
 
 //Pildikataloogi asukoht
 //public static String Kataloog="D:/temp/kaardid/2/joker/jokerextra.png";	//Desktop

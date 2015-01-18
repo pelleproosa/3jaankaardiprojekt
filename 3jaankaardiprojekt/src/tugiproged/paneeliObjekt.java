@@ -37,7 +37,7 @@ public class paneeliObjekt {
 	public int gBCgridy=0;
 	public boolean edasi=false;
 	
-public paneeliObjekt(String Korraldus, String layoutSuund, String paneeliKomponendid,String paneelPildiAadressNupuNimi, int nrKomponendid, String nurk){
+public paneeliObjekt(String Korraldus, String layoutSuund, String paneeliKomponendid,ImageIcon imagesisse, int nrKomponendid, String nurk){
 	layoutSuund=layoutSuund.toUpperCase();
 	Korraldus=Korraldus.toUpperCase();
 	korraldus=Korraldus;
@@ -63,16 +63,16 @@ public paneeliObjekt(String Korraldus, String layoutSuund, String paneeliKompone
 		
 	}
 if(edasi){	
-setKomponendid(korraldus,layoutSuund, paneeliKomponendid,paneelPildiAadressNupuNimi, nrKomponendid, nurk);
+setKomponendid(korraldus,layoutSuund, paneeliKomponendid,imagesisse, nrKomponendid, nurk);
 }else{
 	
 }
 
 }	
 
-public void setLisaPiltTulpa(String paneelPildiAadressNupuNimi, int kohtTulbas,String nurk){
+public void setLisaPiltTulpa(ImageIcon uuspilt, int kohtTulbas,String nurk){
 	
-	image=new ImageIcon(paneelPildiAadressNupuNimi);
+	image=uuspilt;
 	label=rotatePilt(image,nurk);
 	hiireaction();
 	if(gBC.gridx<0){gBC.gridx=0;gBCgridx=gBC.gridx;}
@@ -81,9 +81,9 @@ public void setLisaPiltTulpa(String paneelPildiAadressNupuNimi, int kohtTulbas,S
 	gBCgridy++;
 	
 }
-public void setLisaPiltRitta(String paneelPildiAadressNupuNimi, int kohtReas,String nurk){
+public void setLisaPiltRitta(ImageIcon uuspilt, int kohtReas,String nurk){
 	
-	image=new ImageIcon(paneelPildiAadressNupuNimi);
+	image=uuspilt;
 	label=rotatePilt(image,nurk);
 	hiireaction();
 	if(gBC.gridy<0){gBC.gridy=0;gBCgridy=gBC.gridy;}
@@ -111,11 +111,11 @@ public ArrayList<String> getKomponentideLoetelu(){
 }
 
 
-public void setKomponendid(String korraldus,String layoutSuund,String paneeliKomponendid, String paneelPildiAadressNupuNimi, int nrKomponendid,String nurk){
+public void setKomponendid(String korraldus,String layoutSuund,String paneeliKomponendid, ImageIcon imagesisse, int nrKomponendid,String nurk){
 	paneeliKomponendid=paneeliKomponendid.toUpperCase();
 	korraldus=korraldus.toUpperCase();
 	layoutSuund=layoutSuund.toUpperCase();
-	System.out.println(korraldus+" "+layoutSuund+" "+paneeliKomponendid+" "+paneelPildiAadressNupuNimi+" "+nrKomponendid);
+	//System.out.println(korraldus+" "+layoutSuund+" "+paneeliKomponendid+" "+paneelPildiAadressNupuNimi+" "+nrKomponendid);
 	if (korraldus.equalsIgnoreCase("lisa")){edasi=true;}
 	if (edasi){
 	for(int i=0; i<nrKomponendid; i++)
@@ -133,7 +133,7 @@ public void setKomponendid(String korraldus,String layoutSuund,String paneeliKom
 							case "RIDA":
 							{
 								
-								image=new ImageIcon(paneelPildiAadressNupuNimi);
+								image=imagesisse;
 								
 								
 
@@ -150,7 +150,7 @@ public void setKomponendid(String korraldus,String layoutSuund,String paneeliKom
 							case "TULP":
 							{
 								System.out.println("layoutSuund-tulp sees");
-								image=new ImageIcon(paneelPildiAadressNupuNimi);
+								image=imagesisse;
 								label=rotatePilt(image,nurk);
 								hiireaction();
 								
@@ -171,7 +171,7 @@ public void setKomponendid(String korraldus,String layoutSuund,String paneeliKom
 				label.setHorizontalAlignment(JLabel.CENTER);
 				label.setVerticalAlignment(JLabel.CENTER);
 				ObjektiPaneel.add(label);
-				image=new ImageIcon(paneelPildiAadressNupuNimi);
+				image=imagesisse;
 				label=rotatePilt(image,nurk);
 				hiireaction();
 				ObjektiPaneel.add(label);
@@ -185,7 +185,7 @@ public void setKomponendid(String korraldus,String layoutSuund,String paneeliKom
 	case "NUPP":
 	{
 		nupp=new JButton();
-		nupp.setText(paneelPildiAadressNupuNimi);
+		//nupp.setText(paneelPildiAadressNupuNimi);
 		ObjektiPaneel.add(nupp);
 		System.out.println("NUPP!");
 	}
