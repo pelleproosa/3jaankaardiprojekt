@@ -1,21 +1,15 @@
 package main;
 
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-
-import tugiproged.CompoundIcon;
-import tugiproged.RotatedIcon;
-
 
 
 public class Funktsioonid {
-private String sisestatav="";
-	public void KaardidListi(){
+private static String sisestatav="";
+	public static void KaardidListi(){
 	
 	String mast="";
 	String pilt="";
 	//numbrite sisestamine + pildid
-	for(int i=1; i<4;i++){
+	for(int i=1; i<5;i++){
 		if (i==1){mast="c";}
 		if (i==2){mast="d";}
 		if (i==3){mast="h";}
@@ -25,19 +19,21 @@ private String sisestatav="";
 		pildid(mast);
 		
 		
+		
 	}
-	
+	jokkerid();
+	tagused();
 	}
-	private void numbrid(String mast){
+	private static void numbrid(String mast){
 		for(int ii=2;ii<11;ii++){
 			sisestatav=mast+ii;
 			listi(sisestatav);
 		}
 		
 	}
-	private void pildid(String mast){
+	private static void pildid(String mast){
 		
-		for(int i=1; i<4;i++){
+		for(int i=1; i<5;i++){
 			if (i==1){sisestatav="J";}
 			if (i==2){sisestatav="Q";}
 			if (i==3){sisestatav="K";}
@@ -47,9 +43,23 @@ private String sisestatav="";
 		}
 		
 	}
-	private void listi(String kaart){
+	private static void jokkerid(){
 		
-		Global.pildiAadressideList.add(kaart);
+		for(int i=1; i<4;i++){
+			if (i==1){sisestatav="jokerb";}
+			if (i==2){sisestatav="jokerr";}
+			if (i==3){sisestatav="jokerextra";}
+			listi(sisestatav);
+		}
+		
+		System.out.println("Funktsioonid jokkerid lisada");
+	}
+	private static void tagused(){
+		System.out.println("Funktsioonid tagused lisada");
+	}
+	private static void listi(String kaart){
+		
+		Global.pildiAadressideList.add(Global.Kataloog+kaart+".png");
 	}
 	
 }

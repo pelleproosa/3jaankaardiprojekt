@@ -19,10 +19,14 @@ public static JPanel katseraam1=new JPanel();
 
 //Pildiaadresside list
 public static ArrayList<String> pildiAadressideList=new ArrayList<String>();
+
+
+
 //Pildikataloogi asukoht
-public static String Desktop="D:/temp/kaardid/2/joker/jokerextra.png";	//Desktop
+//public static String Kataloog="D:/temp/kaardid/2/joker/jokerextra.png";	//Desktop
+public static String Kataloog="D:/temp/kaardid/2/koos/";
 //Lihtsalt yks teine pilt
-public static String Desktop1="D:/temp/kaardid/2/h/hA.png";	//Desktop
+public static String Desktop1="D:/temp/kaardid/2/koos/hA.png";	//Desktop
 //pildikataloogi asukoht
 public static String pildiKataloogiAsukoht;
 
