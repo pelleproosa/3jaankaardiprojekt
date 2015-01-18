@@ -18,15 +18,21 @@ import tugiproged.paneeliObjekt;
 public class PaneelideKombineerimine {
 
 	// 
-	public static paneeliObjekt paneelRida=new paneeliObjekt("rida","","",Global.piltideList.get(0),0,"0");
+	public static paneeliObjekt paneelRida=new paneeliObjekt("rida","","",Global.piltideList.get(0),0,"0",false);
 
 	
-	public static void algseadistus(String valik, int kellele, int kuipalju, ImageIcon mispilt){
+	public static void algseadistus(String valik, char kellele, int kuipalju, ImageIcon mispilt){
 		valik=valik.toUpperCase();
 		switch (valik){
 		case"BRIDGE":{
+			Global.MaxKaartidearvPlayeril=Global.BridgeMaxKaartePlayeril;
+			Global.MaxKaartidearvPakis=Global.BridgeMaxKaartePakis;
 			Bridge(kellele, kuipalju, mispilt);
 			break;
+		}
+		case"POTIKAS":{
+			Global.MaxKaartidearvPlayeril=Global.PotikasMaxKaartePlayeril;
+			Global.MaxKaartidearvPakis=Global.MaxKaartidearvPakis;
 		}
 		}
 		
@@ -34,43 +40,43 @@ public class PaneelideKombineerimine {
 	}
 	
 	
-	private static void Bridge(int kellele, int kuipalju, ImageIcon mispilt){
+	private static void Bridge(char kellele, int kuipalju, ImageIcon mispilt){
 
 		
 	/////////////////////////////	
 		
-		paneelRida= new	paneeliObjekt("gridbag","tulp","pilt",null,0,"90"); //tabel=gridlayout, rida ja tulp on boxlayout, ilmakaared=borderlayout
+		paneelRida= new	paneeliObjekt("gridbag","tulp","pilt",null,0,"90",false); //tabel=gridlayout, rida ja tulp on boxlayout, ilmakaared=borderlayout
 
 		Global.paneeliObjektList.add(paneelRida);
 
-		paneelRida= new	paneeliObjekt("gridbag","rida","pilt",null,0,"0"); //tabel=gridlayout, rida ja tulp on boxlayout, ilmakaared=borderlayout
+		paneelRida= new	paneeliObjekt("gridbag","rida","pilt",null,0,"0",false); //tabel=gridlayout, rida ja tulp on boxlayout, ilmakaared=borderlayout
 //		paneelRida.setLisaPiltRitta((Global.piltideList.get(55)), 13, "0");
 		Global.paneeliObjektList.add(paneelRida);	
 
-		paneelRida= new	paneeliObjekt("gridbag","rida","pilt",null,0,"0"); //tabel=gridlayout, rida ja tulp on boxlayout, ilmakaared=borderlayout
+		paneelRida= new	paneeliObjekt("gridbag","rida","pilt",null,0,"0",false); //tabel=gridlayout, rida ja tulp on boxlayout, ilmakaared=borderlayout
 //		paneelRida.setLisaPiltRitta((Global.piltideList.get(55)), 13, "0");
 		Global.paneeliObjektList.add(paneelRida);
 
-		paneelRida= new	paneeliObjekt("gridbag","tulp","pilt",null,0,"90"); //tabel=gridlayout, rida ja tulp on boxlayout, ilmakaared=borderlayout
+		paneelRida= new	paneeliObjekt("gridbag","tulp","pilt",null,0,"90",false); //tabel=gridlayout, rida ja tulp on boxlayout, ilmakaared=borderlayout
 //		paneelRida.setLisaPiltTulpa((Global.piltideList.get(55)), 13, "90");
 		Global.paneeliObjektList.add(paneelRida);
 
 	///////////////////////////	
 		switch(kellele){
-		case 1:{//west..jagamise järjekorras
+		case 'W':{//west..jagamise järjekorras
 			
-			Global.paneeliObjektList.get(2).setLisaPiltTulpa((Global.piltideList.get(55)), 13, "90");
+			Global.paneeliObjektList.get(2).setLisaPiltTulpa(mispilt, 13, "90",false);
 			
 			break;
 		}
-		case 2:{
-			Global.paneeliObjektList.get(0).setLisaPiltTulpa((Global.piltideList.get(55)), 13, "90");			break;
+		case 'N':{
+			Global.paneeliObjektList.get(0).setLisaPiltTulpa(mispilt, 13, "0",false);			break;
 		}
-		case 3:{
-			Global.paneeliObjektList.get(2).setLisaPiltTulpa((Global.piltideList.get(55)), 13, "90");			break;
+		case 'E':{
+			Global.paneeliObjektList.get(3).setLisaPiltTulpa(mispilt, 13, "90",false);			break;
 		}
-		case 4:{
-			Global.paneeliObjektList.get(2).setLisaPiltTulpa((Global.piltideList.get(55)), 13, "90");			break;
+		case 'S':{
+			Global.paneeliObjektList.get(1).setLisaPiltTulpa(mispilt, 13, "0",true);			break;
 		}
 		}
 		
@@ -113,7 +119,7 @@ public class PaneelideKombineerimine {
 //siin käib töö		
 		
 		
-		paneeliObjekt paneelObjekt= new	paneeliObjekt("ilmakaared","","pilt",null,0,"0"); //tabel=gridlayout, rida ja tulp on boxlayout, ilmakaared=borderlayout
+		paneeliObjekt paneelObjekt= new	paneeliObjekt("ilmakaared","","pilt",null,0,"0",false); //tabel=gridlayout, rida ja tulp on boxlayout, ilmakaared=borderlayout
 		Global.paneeliObjektList.add(paneelObjekt);
 		Global.paneeliObjektList.get(4).ObjektiPaneel.setBounds(0, 0, 0, 0);
 

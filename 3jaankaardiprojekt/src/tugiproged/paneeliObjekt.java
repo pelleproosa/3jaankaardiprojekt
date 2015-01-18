@@ -36,8 +36,10 @@ public class paneeliObjekt {
 	public int gBCgridx=0;
 	public int gBCgridy=0;
 	public boolean edasi=false;
+	private boolean HiireActionJahEi=false;
 	
-public paneeliObjekt(String Korraldus, String layoutSuund, String paneeliKomponendid,ImageIcon imagesisse, int nrKomponendid, String nurk){
+public paneeliObjekt(String Korraldus, String layoutSuund, String paneeliKomponendid,ImageIcon imagesisse, int nrKomponendid, String nurk,boolean hiireactionJahEi){
+	HiireActionJahEi=hiireactionJahEi;
 	layoutSuund=layoutSuund.toUpperCase();
 	Korraldus=Korraldus.toUpperCase();
 	korraldus=Korraldus;
@@ -70,22 +72,22 @@ setKomponendid(korraldus,layoutSuund, paneeliKomponendid,imagesisse, nrKomponend
 
 }	
 
-public void setLisaPiltTulpa(ImageIcon uuspilt, int kohtTulbas,String nurk){
-	
+public void setLisaPiltTulpa(ImageIcon uuspilt, int kohtTulbas,String nurk,boolean hiireactionJahEi){
+	HiireActionJahEi=hiireactionJahEi;
 	image=uuspilt;
 	label=rotatePilt(image,nurk);
-	hiireaction();
+	if(HiireActionJahEi){hiireaction();}
 	if(gBC.gridx<0){gBC.gridx=0;gBCgridx=gBC.gridx;}
 	gBC.gridy=kohtTulbas;
 	ObjektiPaneel.add(label,gBC);
 	gBCgridy++;
 	
 }
-public void setLisaPiltRitta(ImageIcon uuspilt, int kohtReas,String nurk){
-	
+public void setLisaPiltRitta(ImageIcon uuspilt, int kohtReas,String nurk,boolean hiireactionJahEi){
+	HiireActionJahEi=hiireactionJahEi;
 	image=uuspilt;
 	label=rotatePilt(image,nurk);
-	hiireaction();
+	if(HiireActionJahEi){hiireaction();}
 	if(gBC.gridy<0){gBC.gridy=0;gBCgridy=gBC.gridy;}
 	gBC.gridx=kohtReas;
 	ObjektiPaneel.add(label,gBC);
@@ -138,7 +140,7 @@ public void setKomponendid(String korraldus,String layoutSuund,String paneeliKom
 								
 
 								label=rotatePilt(image,nurk);
-								hiireaction();
+								if(HiireActionJahEi){hiireaction();}
 								
 								
 								if(gBC.gridy<0){gBC.gridy=0;}
@@ -152,7 +154,7 @@ public void setKomponendid(String korraldus,String layoutSuund,String paneeliKom
 								System.out.println("layoutSuund-tulp sees");
 								image=imagesisse;
 								label=rotatePilt(image,nurk);
-								hiireaction();
+								if(HiireActionJahEi){hiireaction();}
 								
 								if(gBC.gridx<0){gBC.gridx=0;}
 								gBC.gridy=gBCgridy;
@@ -167,13 +169,13 @@ public void setKomponendid(String korraldus,String layoutSuund,String paneeliKom
 			{
 				image=new ImageIcon();
 				label=rotatePilt(image,nurk);
-				hiireaction();
+				if(HiireActionJahEi){hiireaction();}
 				label.setHorizontalAlignment(JLabel.CENTER);
 				label.setVerticalAlignment(JLabel.CENTER);
 				ObjektiPaneel.add(label);
 				image=imagesisse;
 				label=rotatePilt(image,nurk);
-				hiireaction();
+				if(HiireActionJahEi){hiireaction();}
 				ObjektiPaneel.add(label);
 				break;
 				}
@@ -239,19 +241,15 @@ private void hiireaction(){
 			if ((evt.getModifiers() & InputEvent.BUTTON1_MASK) != 0) {
 				System.out.println("Left clicked");
 			}
+/*			
 			if ((evt.getModifiers() & InputEvent.BUTTON2_MASK) != 0) {
 				System.out.println("Center clicked");
 			}
-			if ((evt.getModifiers() & InputEvent.BUTTON3_MASK) != 0) {
-				
-				 
-				
-				System.out.println("Right clicked");
-				
-				 
+			if ((evt.getModifiers() & InputEvent.BUTTON3_MASK) != 0) {				
+				System.out.println("Right clicked");	 
 			}
+ */
 				    }
-
 		public void mouseEntered(MouseEvent e){
 			System.out.println("Hiir Saabus");
 		}
