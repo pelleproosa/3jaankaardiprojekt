@@ -18,10 +18,28 @@ import tugiproged.paneeliObjekt;
 public class PaneelideKombineerimine {
 
 	// 
-	public static paneeliObjekt paneelRida=new paneeliObjekt("rida","","",Global.piltideList.get(0),0,"0",false);
-
+	private static paneeliObjekt paneelRida=new paneeliObjekt("rida","","",null,0,"0",false);
+	public static boolean alusLoodudMitte=false;
 	
-	public static void algseadistus(String valik, char kellele, int kuipalju, ImageIcon mispilt){
+	public static void algseadistus(char kellele,int kaart){
+		if(!alusLoodudMitte){
+			System.out.println("looalusBridge");
+		looalusBridge();
+		alusLoodudMitte=true;
+		Global.kaarteWestil=0;
+		Global.kaarteNordil=0;
+		Global.kaarteEastil=0;
+		Global.kaarteSouthil=0;
+		}
+		if(alusLoodudMitte){
+		
+		
+		seadistus(Global.valitudM2ng,kellele,1,Global.piltideList.get(kaart));
+		}
+		
+	}
+	
+	static void seadistus(String valik, char kellele, int kuipalju, ImageIcon mispilt){
 		valik=valik.toUpperCase();
 		switch (valik){
 		case"BRIDGE":{
@@ -39,12 +57,7 @@ public class PaneelideKombineerimine {
 		
 	}
 	
-	
-	private static void Bridge(char kellele, int kuipalju, ImageIcon mispilt){
-
-		
-	/////////////////////////////	
-		
+	private static void looalusBridge(){
 		paneelRida= new	paneeliObjekt("gridbag","tulp","pilt",null,0,"90",false); //tabel=gridlayout, rida ja tulp on boxlayout, ilmakaared=borderlayout
 
 		Global.paneeliObjektList.add(paneelRida);
@@ -61,22 +74,30 @@ public class PaneelideKombineerimine {
 //		paneelRida.setLisaPiltTulpa((Global.piltideList.get(55)), 13, "90");
 		Global.paneeliObjektList.add(paneelRida);
 
+	}
+	
+	private static void Bridge(char kellele, int asukoht, ImageIcon mispilt){
+
+		
+	/////////////////////////////	
+		
+
 	///////////////////////////	
 		switch(kellele){
 		case 'W':{//west..jagamise järjekorras
 			
-			Global.paneeliObjektList.get(2).setLisaPiltTulpa(mispilt, 13, "90",false);
+			Global.paneeliObjektList.get(2).setLisaPiltTulpa(mispilt, asukoht, "90",false);
 			
 			break;
 		}
 		case 'N':{
-			Global.paneeliObjektList.get(0).setLisaPiltTulpa(mispilt, 13, "0",false);			break;
+			Global.paneeliObjektList.get(0).setLisaPiltRitta(mispilt, asukoht, "0",false);			break;
 		}
 		case 'E':{
-			Global.paneeliObjektList.get(3).setLisaPiltTulpa(mispilt, 13, "90",false);			break;
+			Global.paneeliObjektList.get(3).setLisaPiltTulpa(mispilt, asukoht, "90",false);			break;
 		}
 		case 'S':{
-			Global.paneeliObjektList.get(1).setLisaPiltTulpa(mispilt, 13, "0",true);			break;
+			Global.paneeliObjektList.get(1).setLisaPiltRitta(mispilt, asukoht, "0",true);			break;
 		}
 		}
 		

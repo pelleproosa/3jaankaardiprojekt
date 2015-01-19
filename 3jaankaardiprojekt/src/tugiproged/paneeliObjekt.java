@@ -78,7 +78,8 @@ public void setLisaPiltTulpa(ImageIcon uuspilt, int kohtTulbas,String nurk,boole
 	label=rotatePilt(image,nurk);
 	if(HiireActionJahEi){hiireaction();}
 	if(gBC.gridx<0){gBC.gridx=0;gBCgridx=gBC.gridx;}
-	gBC.gridy=kohtTulbas;
+	gBC.gridy=lisamiseksvaba();
+	System.out.println("lisamiseksvaba: "+lisamiseksvaba()+" / kohttulbas: "+kohtTulbas);
 	ObjektiPaneel.add(label,gBC);
 	gBCgridy++;
 	
@@ -89,11 +90,18 @@ public void setLisaPiltRitta(ImageIcon uuspilt, int kohtReas,String nurk,boolean
 	label=rotatePilt(image,nurk);
 	if(HiireActionJahEi){hiireaction();}
 	if(gBC.gridy<0){gBC.gridy=0;gBCgridy=gBC.gridy;}
-	gBC.gridx=kohtReas;
+	System.out.println("lisamiseksvaba: "+lisamiseksvaba()+" / kohtreas: "+kohtReas);
+	gBC.gridx=lisamiseksvaba();
+	
 	ObjektiPaneel.add(label,gBC);
 	gBCgridx++;
 	
 }
+private int lisamiseksvaba(){
+	ArrayList<String>loetelu=getKomponentideLoetelu();
+	return (loetelu.size());
+}
+
 public void setKustutaKomponentPaneelist(int komponendiNr){
 	ObjektiPaneel.remove(komponendiNr);
 	if(gBCgridx>0){gBCgridx--;}
@@ -151,7 +159,7 @@ public void setKomponendid(String korraldus,String layoutSuund,String paneeliKom
 							}
 							case "TULP":
 							{
-								System.out.println("layoutSuund-tulp sees");
+								//System.out.println("layoutSuund-tulp sees");
 								image=imagesisse;
 								label=rotatePilt(image,nurk);
 								if(HiireActionJahEi){hiireaction();}
@@ -167,12 +175,13 @@ public void setKomponendid(String korraldus,String layoutSuund,String paneeliKom
 					}
 		if((!korraldus.equalsIgnoreCase("gridbag"))&&(!korraldus.equalsIgnoreCase("box"))){
 			{
-				image=new ImageIcon();
+			/*	image=new ImageIcon();
 				label=rotatePilt(image,nurk);
 				if(HiireActionJahEi){hiireaction();}
 				label.setHorizontalAlignment(JLabel.CENTER);
 				label.setVerticalAlignment(JLabel.CENTER);
 				ObjektiPaneel.add(label);
+			*/	
 				image=imagesisse;
 				label=rotatePilt(image,nurk);
 				if(HiireActionJahEi){hiireaction();}
@@ -189,7 +198,7 @@ public void setKomponendid(String korraldus,String layoutSuund,String paneeliKom
 		nupp=new JButton();
 		//nupp.setText(paneelPildiAadressNupuNimi);
 		ObjektiPaneel.add(nupp);
-		System.out.println("NUPP!");
+		//System.out.println("NUPP!");
 	}
 	
 	}
@@ -212,7 +221,7 @@ public JLabel rotatePilt(ImageIcon image1, String nurk){
 	return pilt;
 	}
 	case "90":{
-		System.out.println("90");
+		//System.out.println("90");
 		CompoundIcon ci = new CompoundIcon(image1);
 		RotatedIcon ri = new RotatedIcon(ci, RotatedIcon.Rotate.DOWN);
 		pilt=new JLabel(ri);

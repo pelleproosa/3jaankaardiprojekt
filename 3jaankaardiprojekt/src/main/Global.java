@@ -25,18 +25,21 @@ public static int ViimanePisikeKaartListis=0;
 public static ArrayList<ImageIcon> piltideList=new ArrayList<ImageIcon>();
 public static int MaxKaartidearvPlayeril=0;
 public static int MaxKaartidearvPakis=0;
-//Kaartide arv pakis
+//Kaartide arv
 public static int PotikasMaxKaartePakis=36;
 public static int PotikasMaxKaartePlayeril=36;
 public static int BridgeMaxKaartePakis=52;
 public static int BridgeMaxKaartePlayeril=13;
+public static int kaarteWestil;
+public static int kaarteNordil;
+public static int kaarteEastil;
+public static int kaarteSouthil;
 //Pildikataloogi asukoht
-//public static String Kataloog="D:/temp/kaardid/2/joker/jokerextra.png";	//Desktop
 public static String Kataloog="D:/temp/kaardid/2/koos/";
-//Lihtsalt yks teine pilt
-public static String Desktop1="D:/temp/kaardid/2/koos/hA.png";	//Desktop
 //pildikataloogi asukoht
-public static String pildiKataloogiAsukoht;
+//public static String pildiKataloogiAsukoht;
+//Valitud mänguga seonduv
+public static String valitudM2ng;
 
 //
 }
